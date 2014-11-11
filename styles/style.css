@@ -1,0 +1,48 @@
+body{
+margin:0;
+padding:0;
+background-color: #FFFFFF;
+}
+
+#mainImage{
+	min-width:100%;
+	min-height:100%;
+	position:fixed;
+	
+}
+
+.background{
+	z-index: 0;
+}
+
+.topOver{
+	z-index: 10;
+	
+}
+
+#settings{
+	z-index: 99;
+	position: fixed;
+	width:200px;
+	background-color: #FFF;
+	opacity: 0.8;
+	bottom:0px;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding-left:5px;
+	margin: 0px 0px 5px 5px;
+}
+
+#content{
+	padding-left:8px;
+	font-family: 'Oswald', sans-serif;
+}
+
+#loader{
+	position:fixed;
+	left:47%;
+	width:4.5%;
+	top:43%;
+}
