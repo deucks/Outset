@@ -60,8 +60,7 @@ function showDetailsEnd()
 function setTimer()
 {	
 	var value = document.getElementById('timer').value;
-	value = value * 1000;
-	timer = value;
+	timer = value * 1000;
 }
 
 //basically to start the timer for the clock, calls itself 
