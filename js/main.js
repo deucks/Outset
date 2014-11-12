@@ -3,6 +3,7 @@ var pwidth;
 var pheight;
 var backgroundCount = 0;
 var timer = 20000;
+var timePrompt;
 
 //when the document has loaded
 $(document).ready(function(){
@@ -29,6 +30,9 @@ $(document).ready(function(){
 //also includes fadeIn and fadeOut animations
 function changeImage()
 {
+	
+	clearTimeout(timePrompt);
+	
 	$("#mainImage").fadeOut();
 	
 	//check if the blur checkbox is ticked
@@ -38,8 +42,10 @@ function changeImage()
 		$('#mainImage').attr('src', 'https://unsplash.it/' + pwidth + '/' + pheight + '/?random&' + backgroundCount);
 	}
 	
+	//when image loaded, start the timer and show image
 	$('#mainImage').on('load', function(){
 		$("#mainImage").fadeIn();
+		restartTimer();
 	});
 	backgroundCount++;
 }
@@ -63,11 +69,10 @@ function setTimer()
 	timer = value * 1000;
 }
 
-//basically to start the timer for the clock, calls itself 
+//basically to start the timer for the clock
 function restartTimer()
 {
-	setTimeout(function(){
+	timePrompt = setTimeout(function(){
 		changeImage();	
-		restartTimer();
 	}, timer);
 }
