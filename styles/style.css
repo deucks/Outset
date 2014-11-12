@@ -20,6 +20,10 @@ background-color: #FFFFFF;
 	
 }
 
+#allContent{
+	position:absolute;
+}
+
 #settings{
 	z-index: 99;
 	position: fixed;

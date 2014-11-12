@@ -4,6 +4,8 @@ var pheight;
 var backgroundCount = 0;
 var timer = 20000;
 
+
+
 //when the document has loaded
 $(document).ready(function(){
 	
@@ -13,10 +15,12 @@ $(document).ready(function(){
 	document.getElementById('timer').value = timer/1000;	
 	pwidth = $(window).width();
 	pheight = $(window).height();
+	$('#allContent').mouseleave(showDetailsEnd);
+
 	
 	
 	//the timer
-	restartTimer();
+	changeImage();
 	
 	//when the window is resized, it will update the width and height
 	$(window).resize(function(){
@@ -42,6 +46,7 @@ function changeImage()
 	//when image loaded, start the timer and show image
 	$('#mainImage').on('load', function(){
 		$("#mainImage").fadeIn();
+		restartTimer();
 	});
 	backgroundCount++;
 }
@@ -52,9 +57,10 @@ function showDetails()
 	$(".topOver").fadeIn();
 }
 
+
 //when not hovering over an image hide details.
 function showDetailsEnd()
-{
+{	
 	$(".topOver").fadeOut();
 }
 
@@ -70,6 +76,5 @@ function restartTimer()
 {
 	timePrompt = setTimeout(function(){
 		changeImage();	
-		restartTimer();
 	}, timer);
 }
