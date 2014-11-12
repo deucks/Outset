@@ -3,7 +3,6 @@ var pwidth;
 var pheight;
 var backgroundCount = 0;
 var timer = 20000;
-var timePrompt;
 
 //when the document has loaded
 $(document).ready(function(){
@@ -30,9 +29,7 @@ $(document).ready(function(){
 //also includes fadeIn and fadeOut animations
 function changeImage()
 {
-	
-	clearTimeout(timePrompt);
-	
+
 	$("#mainImage").fadeOut();
 	
 	//check if the blur checkbox is ticked
@@ -45,7 +42,6 @@ function changeImage()
 	//when image loaded, start the timer and show image
 	$('#mainImage').on('load', function(){
 		$("#mainImage").fadeIn();
-		restartTimer();
 	});
 	backgroundCount++;
 }
@@ -74,5 +70,6 @@ function restartTimer()
 {
 	timePrompt = setTimeout(function(){
 		changeImage();	
+		restartTimer();
 	}, timer);
 }
